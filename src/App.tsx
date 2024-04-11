@@ -1,5 +1,7 @@
 import { CustomInput } from "./components/CustomInput"
+
 import "./App.module.css"
+import "./global.css"
 
 function App() {
   return (
