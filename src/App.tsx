@@ -1,4 +1,4 @@
-import { CustomInput } from "./components/CustomInput"
+import { CustomCheckbox } from "./components/CustomCheckbox"
 
 import "./App.module.css"
 import "./global.css"
@@ -6,7 +6,7 @@ import "./global.css"
 function App() {
   return (
     <div>
-      <CustomInput />
+      <CustomCheckbox />
     </div>
   )
 }

@@ -1,0 +1,45 @@
+.customCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 1.09rem;
+  height: 1.09rem;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkboxCheckmark {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 0.9rem;
+  width: 0.9rem;
+  background-color: var(--gray-700);
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+}
+
+.checkboxCheckmark svg {
+  color: var(--gray-100);
+}
+
+.checkboxCheckmark:hover {
+  border: 3px solid var(--blue-dark);
+  background-color: var(--gray-500);
+}
+
+.checkboxInput:checked + .checkboxCheckmark {
+  background-color: var(--purple);
+  border: 3px solid var(--purple);
+}
+
+.checkboxInput:checked:hover + .checkboxCheckmark {
+  background-color: var(--purple-dark);
+  border: 3px solid var(--purple-dark);
+}
