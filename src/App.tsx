@@ -1,4 +1,4 @@
-import { CustomCheckbox } from "./components/CustomCheckbox"
+import { ButtonCreate } from "./components/ButtonCreate"
 
 import "./App.module.css"
 import "./global.css"
@@ -6,7 +6,7 @@ import "./global.css"
 function App() {
   return (
     <div>
-      <CustomCheckbox />
+      <ButtonCreate />
     </div>
   )
 }
