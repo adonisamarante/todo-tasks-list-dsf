@@ -1,3 +1,20 @@
 .buttonCreate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: var(--blue-dark);
+  color: var(--gray-100);
+  font-weight: bold;
+  font-size: 0.87rem;
+
+  border: 0;
+  border-radius: 8px;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.buttonCreate:hover {
+  background-color: var(--blue);
+  cursor: pointer;
 }
