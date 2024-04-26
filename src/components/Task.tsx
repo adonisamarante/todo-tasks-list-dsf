@@ -6,7 +6,10 @@ export function Task() {
   return (
     <div className={styles.task}>
       <CustomCheckbox />
-      <span style={{ color: "white" }}>test</span>
+      <span style={{ color: "white" }}>
+        Integer urna interdum massa libero auctor neque turpis turpis semper.
+        Duis vel sed fames integer. fsdifisodf ifsodfjos ifsdofjsd ifsjdfos
+      </span>
       <ButtonDelete />
     </div>
   )

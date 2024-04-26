@@ -7,4 +7,12 @@
   gap: 0.75rem;
 
   padding: 1rem;
+  border-radius: 8px;
+}
+
+.task span {
+  display: flex;
+
+  font-size: 0.875rem;
+  color: var(--gray-100);
 }
