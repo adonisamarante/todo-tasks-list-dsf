@@ -1,10 +1,10 @@
 import styles from "./CustomInput.module.css"
 
 interface CustomInputProps {
-  w?: number
+  w?: number | string
 }
 
-export function CustomInput({ w = 491 }: CustomInputProps) {
+export function CustomInput({ w = "inherit" }: CustomInputProps) {
   return (
     <input
       className={styles.customInput}
