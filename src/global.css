@@ -19,8 +19,9 @@
 }
 
 body {
-  background: var(--gray-700);
+  background: var(--gray-600);
   -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
 body,
