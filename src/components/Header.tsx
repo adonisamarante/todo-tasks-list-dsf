@@ -1,3 +1,11 @@
+import styles from "./Header.module.css"
+
+import TodoLogo from "./../assets/todo-logo.svg"
+
 export function Header() {
-  return <div><span style={{color: 'white+'}}>test</span></div>
+  return (
+    <header className={styles.header}>
+      <img src={TodoLogo} alt="Logotipo Todo App" />
+    </header>
+  )
 }

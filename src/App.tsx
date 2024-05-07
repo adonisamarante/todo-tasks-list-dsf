@@ -1,4 +1,4 @@
-import { Task } from "./components/Task"
+import { Header } from "./components/Header"
 
 import "./App.module.css"
 import "./global.css"
@@ -6,7 +6,7 @@ import "./global.css"
 function App() {
   return (
     <div>
-      <Task />
+      <Header />
     </div>
   )
 }
