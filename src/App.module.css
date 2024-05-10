@@ -56,31 +56,3 @@
   padding: 0.125rem 0.5rem;
   border-radius: 999px;
 }
-
-.EmptyStateConainer {
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-}
-
-.Separator {
-  width: 100%;
-  height: 1.2px;
-  background-color: var(--gray-400);
-
-  margin-bottom: 4rem;
-}
-
-.EmptyStateConainer img {
-  margin-bottom: 1rem;
-}
-
-.EmptyStateConainer span {
-  font-size: 1rem;
-  color: var(--gray-300);
-  line-height: 140%;
-}
-
-.EmptyStateConainer span:first-of-type {
-  font-weight: bold;
-}

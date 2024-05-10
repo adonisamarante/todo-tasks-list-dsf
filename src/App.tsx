@@ -3,7 +3,7 @@ import styles from "./App.module.css"
 import { Header } from "./components/Header"
 import { CustomInput } from "./components/CustomInput"
 import { ButtonCreate } from "./components/ButtonCreate"
-import Clipboard from "./assets/Clipboard.svg"
+import { EmptyList } from "./components/EmptyList"
 
 function App() {
   return (
@@ -28,12 +28,7 @@ function App() {
             </div>
           </div>
 
-          <div className={styles.EmptyStateConainer}>
-            <div className={styles.Separator}></div>
-            <img src={Clipboard} alt="" />
-            <span>Você ainda não tem tarefas cadastradas</span>
-            <span>Crie tarefas e organize seus itens a fazer</span>
-          </div>
+          <EmptyList />
         </div>
       </body>
     </div>
