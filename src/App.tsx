@@ -15,6 +15,11 @@ interface TaskListItem {
 function App() {
   const [tasks, setTasks] = useState<TaskListItem[]>([])
 
+  const taskCounter = tasks.length
+
+  const doneTasksList = tasks.filter((task) => task.done === true)
+  const doneTasksCounter = doneTasksList.length ?? 0
+
   useEffect(() => {
     setTasks([
       {
@@ -57,7 +62,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className={styles.PageContainer}>
       <Header />
 
       <body className={styles.Wrapper}>
@@ -70,11 +75,11 @@ function App() {
           <div className={styles.ListInfoContainer}>
             <div className={styles.ListInfoItem}>
               <span className={styles.CreatedTitle}>Tarefas Criadas</span>
-              <span className={styles.InfoCounter}>0</span>
+              <span className={styles.InfoCounter}>{taskCounter}</span>
             </div>
             <div className={styles.ListInfoItem}>
               <span className={styles.FinishedTitle}>Concluídas</span>
-              <span className={styles.InfoCounter}>0</span>
+              <span className={styles.InfoCounter}>{doneTasksCounter}</span>
             </div>
           </div>
 
