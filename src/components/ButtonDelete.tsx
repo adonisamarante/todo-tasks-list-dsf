@@ -4,7 +4,7 @@ import styles from "./ButtonDelete.module.css"
 export function ButtonDelete() {
   return (
     <button className={styles.button}>
-      <Trash size={18} weight="bold" />
+      <Trash size={18} weight="bold" color="#808080" />
     </button>
   )
 }
