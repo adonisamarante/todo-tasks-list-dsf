@@ -4,8 +4,58 @@ import { Header } from "./components/Header"
 import { CustomInput } from "./components/CustomInput"
 import { ButtonCreate } from "./components/ButtonCreate"
 import { EmptyList } from "./components/EmptyList"
+import { useEffect, useState } from "react"
+import { Task } from "./components/Task"
+
+interface TaskListItem {
+  taskDescription: string
+  done: boolean
+}
 
 function App() {
+  const [tasks, setTasks] = useState<TaskListItem[]>([])
+
+  useEffect(() => {
+    setTasks([
+      {
+        taskDescription: "Teste de task a fazer",
+        done: false,
+      },
+      {
+        taskDescription: "Teste de task feita",
+        done: true,
+      },
+      {
+        taskDescription: "Teste de task a fazer dois",
+        done: false,
+      },
+      {
+        taskDescription: "Teste de task a fazer",
+        done: false,
+      },
+      {
+        taskDescription: "Teste de task feita",
+        done: true,
+      },
+      {
+        taskDescription: "Teste de task a fazer dois",
+        done: false,
+      },
+      {
+        taskDescription: "Teste de task a fazer",
+        done: false,
+      },
+      {
+        taskDescription: "Teste de task feita",
+        done: true,
+      },
+      {
+        taskDescription: "Teste de task a fazer dois",
+        done: false,
+      },
+    ])
+  }, [])
+
   return (
     <div>
       <Header />
@@ -28,7 +78,15 @@ function App() {
             </div>
           </div>
 
-          <EmptyList />
+          {!tasks?.length ? (
+            <EmptyList />
+          ) : (
+            <div className={styles.TaskListContainer}>
+              {tasks.map(() => (
+                <Task />
+              ))}
+            </div>
+          )}
         </div>
       </body>
     </div>
