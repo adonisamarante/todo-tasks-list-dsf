@@ -11,8 +11,6 @@
 }
 
 .task span {
-  display: flex;
-
   font-size: 0.875rem;
   line-height: 140%;
 
