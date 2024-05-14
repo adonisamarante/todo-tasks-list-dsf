@@ -3,7 +3,6 @@ import styles from "./ButtonDelete.module.css"
 
 interface DeleteBtnProps {
   onDeleteTask: () => void
-  taskDescription?: string
 }
 
 export function ButtonDelete({ onDeleteTask }: DeleteBtnProps) {

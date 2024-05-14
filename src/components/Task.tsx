@@ -10,13 +10,13 @@ interface TaskProps {
 
 export function Task({ taskInfo, onDeleteTask }: TaskProps) {
   function handleDeleteTask() {
-    onDeleteTask(taskInfo.taskDescription)
+    onDeleteTask(taskInfo.description)
   }
 
   return (
     <div className={styles.task}>
       <CustomCheckbox />
-      <span>{taskInfo?.taskDescription}</span>
+      <span>{taskInfo?.description}</span>
       <ButtonDelete onDeleteTask={handleDeleteTask} />
     </div>
   )

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import { Task } from "./components/Task"
 
 export interface TaskListItem {
-  taskDescription: string
+  description: string
   done: boolean
 }
 
@@ -22,7 +22,7 @@ function App() {
 
   function deleteTask(taskToDelete: string) {
     const tasksWithoutDeletedOne = tasks.filter(
-      (task) => task.taskDescription !== taskToDelete
+      (task) => task.description !== taskToDelete
     )
 
     setTasks(tasksWithoutDeletedOne)
@@ -31,39 +31,39 @@ function App() {
   useEffect(() => {
     setTasks([
       {
-        taskDescription: "Teste de task a fazer",
+        description: "Teste de task a fazer",
         done: false,
       },
       {
-        taskDescription: "Teste de task feita",
+        description: "Teste de task feita",
         done: true,
       },
       {
-        taskDescription: "Teste de task a fazer dois",
+        description: "Teste de task a fazer dois",
         done: false,
       },
       {
-        taskDescription: "Teste de task a fazer",
+        description: "Teste de task a fazer",
         done: false,
       },
       {
-        taskDescription: "Teste de task feita",
+        description: "Teste de task feita",
         done: true,
       },
       {
-        taskDescription: "Teste de task a fazer dois",
+        description: "Teste de task a fazer dois",
         done: false,
       },
       {
-        taskDescription: "Teste de task a fazer",
+        description: "Teste de task a fazer",
         done: false,
       },
       {
-        taskDescription: "Teste de task feita",
+        description: "Teste de task feita",
         done: true,
       },
       {
-        taskDescription: "Teste de task a fazer dois",
+        description: "Teste de task a fazer dois",
         done: false,
       },
     ])
@@ -97,7 +97,7 @@ function App() {
             <div className={styles.TaskListContainer}>
               {tasks.map((task, index) => (
                 <div
-                  key={index}
+                  key={task.description}
                   className={index === tasks.length - 1 ? styles.LastItem : ""}
                 >
                   <Task taskInfo={task} onDeleteTask={deleteTask} />
