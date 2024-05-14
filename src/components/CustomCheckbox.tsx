@@ -18,6 +18,7 @@ export function CustomCheckbox({
         onChange={handleCheckChange}
         className={styles.checkboxInput}
       />
+
       <span className={styles.checkboxCheckmark}>
         {checked && <Check size={10} />}
       </span>
