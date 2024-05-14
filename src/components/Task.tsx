@@ -24,7 +24,16 @@ export function Task({ taskInfo, handleDoneTask, onDeleteTask }: TaskProps) {
         checked={taskInfo.done}
         handleCheckChange={handleCheckChange}
       />
-      <span>{taskInfo?.description}</span>
+
+      <span
+        style={{
+          textDecoration: taskInfo.done ? "line-through" : "none",
+          color: taskInfo.done ? "var(--gray-300)" : "var(--gray-100)",
+        }}
+      >
+        {taskInfo?.description}
+      </span>
+
       <ButtonDelete onDeleteTask={handleDeleteTask} />
     </div>
   )
