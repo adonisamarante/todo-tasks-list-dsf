@@ -1,14 +1,15 @@
-import { useState } from "react"
 import { Check } from "@phosphor-icons/react"
 import styles from "./CustomCheckbox.module.css"
 
-export function CustomCheckbox() {
-  const [checked, setChecked] = useState(false)
+interface CheckboxProps {
+  checked: boolean
+  handleCheckChange: () => void
+}
 
-  function handleCheckChange() {
-    setChecked(!checked)
-  }
-
+export function CustomCheckbox({
+  checked = false,
+  handleCheckChange,
+}: CheckboxProps) {
   return (
     <label className={styles.customCheckbox}>
       <input
