@@ -7,7 +7,7 @@ import { EmptyList } from "./components/EmptyList"
 import { useEffect, useState } from "react"
 import { Task } from "./components/Task"
 
-interface TaskListItem {
+export interface TaskListItem {
   taskDescription: string
   done: boolean
 }
@@ -19,6 +19,14 @@ function App() {
 
   const doneTasksList = tasks.filter((task) => task.done === true)
   const doneTasksCounter = doneTasksList.length ?? 0
+
+  function deleteTask(taskToDelete: string) {
+    const tasksWithoutDeletedOne = tasks.filter(
+      (task) => task.taskDescription !== taskToDelete
+    )
+
+    setTasks(tasksWithoutDeletedOne)
+  }
 
   useEffect(() => {
     setTasks([
@@ -87,8 +95,13 @@ function App() {
             <EmptyList />
           ) : (
             <div className={styles.TaskListContainer}>
-              {tasks.map(() => (
-                <Task />
+              {tasks.map((task, index) => (
+                <div
+                  key={index}
+                  className={index === tasks.length - 1 ? styles.LastItem : ""}
+                >
+                  <Task taskInfo={task} onDeleteTask={deleteTask} />
+                </div>
               ))}
             </div>
           )}

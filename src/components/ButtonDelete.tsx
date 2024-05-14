@@ -1,10 +1,15 @@
 import { Trash } from "@phosphor-icons/react"
 import styles from "./ButtonDelete.module.css"
 
-export function ButtonDelete() {
+interface DeleteBtnProps {
+  onDeleteTask: () => void
+  taskDescription?: string
+}
+
+export function ButtonDelete({ onDeleteTask }: DeleteBtnProps) {
   return (
-    <button className={styles.button}>
-      <Trash size={18} weight="bold" color="#808080" />
+    <button className={styles.button} onClick={onDeleteTask}>
+      <Trash size={18} weight="bold" />
     </button>
   )
 }
