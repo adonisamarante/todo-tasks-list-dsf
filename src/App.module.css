@@ -21,7 +21,8 @@
   margin: 0 1rem;
 }
 
-.CreateContainer {
+.CreateForm {
+  display: flex;
   width: 100%;
   justify-content: space-between;
   gap: 0.5rem;

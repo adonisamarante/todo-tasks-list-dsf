@@ -4,7 +4,7 @@ import { Header } from "./components/Header"
 import { CustomInput } from "./components/CustomInput"
 import { ButtonCreate } from "./components/ButtonCreate"
 import { EmptyList } from "./components/EmptyList"
-import { useEffect, useState } from "react"
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"
 import { Task } from "./components/Task"
 
 export interface TaskListItem {
@@ -14,11 +14,41 @@ export interface TaskListItem {
 
 function App() {
   const [tasks, setTasks] = useState<TaskListItem[]>([])
+  const [newTaskDescription, setNewTaskDescription] = useState("")
 
   const taskCounter = tasks.length
 
   const doneTasksList = tasks.filter((task) => task.done === true)
   const doneTasksCounter = doneTasksList.length ?? 0
+
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault()
+
+    setTasks([...tasks, { description: newTaskDescription, done: false }])
+    setNewTaskDescription("")
+  }
+
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("")
+    setNewTaskDescription(event.target.value)
+
+    console.log(event.target.value)
+  }
+
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("Este campo é obrigatório")
+  }
+
+  function handleDoneTask(taskToChange: TaskListItem) {
+    setTasks((tasks) => {
+      return tasks.map((task) => {
+        if (task.description === taskToChange.description) {
+          return { ...task, done: !taskToChange.done }
+        }
+        return task
+      })
+    })
+  }
 
   function deleteTask(taskToDelete: string) {
     const tasksWithoutDeletedOne = tasks.filter(
@@ -28,57 +58,20 @@ function App() {
     setTasks(tasksWithoutDeletedOne)
   }
 
-  useEffect(() => {
-    setTasks([
-      {
-        description: "Teste de task a fazer",
-        done: false,
-      },
-      {
-        description: "Teste de task feita",
-        done: true,
-      },
-      {
-        description: "Teste de task a fazer dois",
-        done: false,
-      },
-      {
-        description: "Teste de task a fazer",
-        done: false,
-      },
-      {
-        description: "Teste de task feita",
-        done: true,
-      },
-      {
-        description: "Teste de task a fazer dois",
-        done: false,
-      },
-      {
-        description: "Teste de task a fazer",
-        done: false,
-      },
-      {
-        description: "Teste de task feita",
-        done: true,
-      },
-      {
-        description: "Teste de task a fazer dois",
-        done: false,
-      },
-    ])
-  }, [])
-
   return (
     <div className={styles.PageContainer}>
       <Header />
 
       <body className={styles.Wrapper}>
         <div className={styles.Container}>
-          <div className={styles.CreateContainer}>
-            <CustomInput />
+          <form onSubmit={handleCreateNewTask} className={styles.CreateForm}>
+            <CustomInput
+              value={newTaskDescription}
+              onChangeDescription={handleNewTaskChange}
+              onInvalid={handleNewTaskInvalid}
+            />
             <ButtonCreate />
-          </div>
+          </form>
 
           <div className={styles.ListInfoContainer}>
             <div className={styles.ListInfoItem}>
@@ -100,7 +93,11 @@ function App() {
                   key={task.description}
                   className={index === tasks.length - 1 ? styles.LastItem : ""}
                 >
-                  <Task taskInfo={task} onDeleteTask={deleteTask} />
+                  <Task
+                    taskInfo={task}
+                    onDeleteTask={deleteTask}
+                    handleDoneTask={handleDoneTask}
+                  />
                 </div>
               ))}
             </div>
